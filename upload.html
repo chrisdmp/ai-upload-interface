@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Data Upload Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .upload-container {
+            border: 2px dashed #007bff;
+            padding: 30px;
+            display: inline-block;
+            width: 50%;
+            cursor: pointer;
+        }
+        .file-input {
+            display: none;
+        }
+        .upload-text {
+            font-size: 18px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload AI Data (Athens & Geneva)</h2>
+    <div class="upload-container" onclick="document.getElementById('file-input').click()">
+        <p class="upload-text">Drag & Drop Files or Click to Upload</p>
+        <input type="file" id="file-input" class="file-input" multiple onchange="handleFiles(this.files)">
+    </div>
+    <div id="file-list"></div>
+
+    <script>
+        function handleFiles(files) {
+            let fileListDiv = document.getElementById("file-list");
+            fileListDiv.innerHTML = "<h3>Uploaded Files:</h3>";
+            for (let i = 0; i < files.length; i++) {
+                fileListDiv.innerHTML += `<p>${files[i].name}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
